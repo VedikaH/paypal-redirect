@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Payment Cancelled</title>
+  <script>
+    function redirectToApp() {
+      window.location.href = "myapp://payment-result?status=cancelled";
+
+      setTimeout(() => {
+        document.getElementById("fallback").style.display = "block";
+      }, 3000);
+    }
+    window.onload = redirectToApp;
+  </script>
+</head>
+<body>
+  <h2>Payment was cancelled.</h2>
+  <p>Redirecting back to the app...</p>
+  <div id="fallback" style="display:none;">
+    <p>If you are not redirected, <a href="myapp://payment-result?status=cancelled">click here</a>.</p>
+  </div>
+</body>
+</html>

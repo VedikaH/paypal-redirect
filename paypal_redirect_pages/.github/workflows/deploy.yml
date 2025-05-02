@@ -1,0 +1,24 @@
+name: Deploy Static Pages
+
+on:
+  push:
+    branches: [main]  # Trigger the deployment when there is a push to the 'main' branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3  # Check out your repository code
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v3  # Setup GitHub Pages for deployment
+
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: .  # Upload everything (this will include return.html and cancel.html)
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v2  # Deploy to GitHub Pages

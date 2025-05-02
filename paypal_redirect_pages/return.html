@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Payment Success</title>
+  <script>
+    function redirectToApp() {
+      // Redirect to your Flutter app using deep link
+      window.location.href = "myapp://payment-result?status=success";
+
+      // Show fallback if it doesn't work
+      setTimeout(() => {
+        document.getElementById("fallback").style.display = "block";
+      }, 3000);
+    }
+    window.onload = redirectToApp;
+  </script>
+</head>
+<body>
+  <h2>Thank you! Payment was successful.</h2>
+  <p>Redirecting to the app...</p>
+  <div id="fallback" style="display:none;">
+    <p>If you are not redirected, <a href="myapp://payment-result?status=success">click here</a>.</p>
+  </div>
+</body>
+</html>
